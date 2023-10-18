@@ -3,12 +3,17 @@ import sms
 import math
 import random
 client = Client(sms.account_sid, sms.auth_token)
-data = "0123456789"
-leng = len(data)
-otp = ""
+digits="0123456789"
 
-for i in range(6):
-    otp += data[math.floor(random.random()*leng)]
+# function for otp generation
+def generate_otp():
+    otp=""
+    for i in range(6):
+      otp+=random.choice(digits)
+
+    return otp
+
+fotp=generate_otp()
 
 message = client.messages.create(
     body="Your 6 digit OTP is "+otp,
