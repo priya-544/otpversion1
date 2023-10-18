@@ -5,7 +5,6 @@ import random
 client = Client(sms.account_sid, sms.auth_token)
 digits="0123456789"
 
-# function for otp generation
 def generate_otp():
     otp=""
     for i in range(6):
@@ -15,12 +14,9 @@ def generate_otp():
 
 fotp=generate_otp()
 
-# function for checking mobile number
 def validate_mobile(num):
     return len(num) == 10 and num.isdigit()
 
-
-# function to send otp via sms ans validate number
 def send_otp_over_mobile(target_no,fotp):
     
     if(validate_mobile(target_no)):
@@ -49,7 +45,6 @@ def validate_email(mail):
    else:
       return True
 
-# function to send otp via email and validate email
 def send_otp_over_email(mail,fotp,sender,password):
    if(validate_email(mail)):
         server=smtplib.SMTP('smtp.gmail.com',587)
