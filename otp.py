@@ -63,5 +63,23 @@ def send_otp_over_email(mail,fotp,sender,password):
         mail=input("ENTER AGAIN: ")
         validate_email(mail)
         send_otp_over_email(mail,fotp,sender,password)
+
+print("How do you want to send the otp?")
+ans=input("Through Mobile or Email: ")
+
+sender="sarikatare16@gmail.com"  
+password="qrqxkweelnbgqmoa"
+
+if(ans.lower()=="mobile"):
+    
+    number=input("ENTER YOUR MOBILE NUMBER: ")
+    validate_mobile(number)
+    send_otp_over_mobile(number,fotp)
+
+elif(ans.lower()=="email"):
+    
+    recipent=input("ENTER YOUR MAIL ID: ")
+    send_otp_over_email(recipent,fotp,sender,password)
+
       
 
